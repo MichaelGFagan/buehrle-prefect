@@ -27,6 +27,9 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# PyCharm files
+.idea/
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -52,6 +55,11 @@ coverage.xml
 .pytest_cache/
 
 # Translations
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
 *.mo
 *.pot
 
@@ -65,11 +73,6 @@ db.sqlite3-journal
 instance/
 .webassets-cache
 
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
 
 # PyBuilder
 target/
