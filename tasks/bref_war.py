@@ -13,7 +13,7 @@ credentials = service_account.Credentials.from_service_account_file(
 )
 
 @task
-def bbref_war():
+def bref_war():
     for file in files_dict:
         url = files_dict[file]
         df = pandas.read_csv(url)
