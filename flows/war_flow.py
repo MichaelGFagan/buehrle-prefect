@@ -1,12 +1,10 @@
-# from prefect import Flow
-# import buehrle_prefect.tasks.bref_war as bref_war
-# import buehrle_prefect.tasks.fangraphs as fangraphs
+from prefect import Flow
+import tasks.bref_war as bref_war
+import tasks.fangraphs as fangraphs
 
-# with Flow("WAR") as flow:
-#     bref_war.bref_war()
-#     fangraphs.fangraphs()
-#
-# flow.register(project_name="buehrle")
+with Flow("WAR") as flow:
+    bref_war.bref_war()
+    fangraphs.fangraphs()
 
-import sys
-print(sys.path)
+def flow_register():
+    flow.register(project_name="buehrle")
