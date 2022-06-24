@@ -3,11 +3,11 @@ from pybaseball import batting_stats, pitching_stats
 from google.oauth2 import service_account
 from prefect import task
 
-CREDENTIALS = service_account.Credentials.from_service_account_file(
-    'bigquery_credentials.json'
+credentials = service_account.Credentials.from_service_account_file(
+    '/Users/michaelfagan/buehrle/bigquery_credentials.json'
 )
-PROJECT_ID = 'baseball-source'
-RENAMED_COLUMNS = {
+project_id = 'baseball-source'
+renamed_columns = {
     '1B': '_1B',
     '2B': '_2B',
     '3B': '_3B',

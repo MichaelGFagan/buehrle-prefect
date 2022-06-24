@@ -9,7 +9,7 @@ files_dict = {
 }
 
 credentials = service_account.Credentials.from_service_account_file(
-    'bigquery_credentials.json'
+    '/Users/michaelfagan/buehrle/bigquery_credentials.json'
 )
 
 @task
