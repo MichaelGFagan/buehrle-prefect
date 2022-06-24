@@ -283,10 +283,10 @@ def fangraphs(start, end):
                 df = batting_stats(year, qual=0)
             elif side == 'pitching':
                 df = pitching_stats(year, qual=0)
-            df.rename(columns=RENAMED_COLUMNS, inplace=True)
+            df.rename(columns=renamed_columns, inplace=True)
             print('Loading ' + table_id)
             table_schema = []
             for column in df.columns:
                 table_schema.append({'name': column, 'type': 'STRING'})
-            pandas_gbq.to_gbq(df, table_id, project_id=PROJECT_ID, if_exists='replace', table_schema=table_schema,
+            pandas_gbq.to_gbq(df, table_id, project_id=project_id, if_exists='replace', table_schema=table_schema,
                               chunksize=10000)
