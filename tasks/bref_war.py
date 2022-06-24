@@ -4,8 +4,8 @@ from google.oauth2 import service_account
 from prefect import task
 
 files_dict = {
-    'bbref_war.batting': 'https://www.baseball-reference.com/data/war_daily_bat.txt',
-    'bbref_war.pitching': 'https://www.baseball-reference.com/data/war_daily_pitch.txt'
+    'bref.batting_war': 'https://www.baseball-reference.com/data/war_daily_bat.txt',
+    'bref.pitching_war': 'https://www.baseball-reference.com/data/war_daily_pitch.txt'
 }
 
 credentials = service_account.Credentials.from_service_account_file(
