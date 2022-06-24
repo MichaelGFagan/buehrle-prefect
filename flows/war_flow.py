@@ -1,9 +1,11 @@
 from prefect import Flow, Parameter
 import tasks.bref_war as bref_war
 import tasks.fangraphs as fangraphs
+import tasks.chadwick as chadwick
 
 
 with Flow("WAR") as flow:
+    chadwick.chadwick()
     bref_war.bref_war()
     fangraphs_start = Parameter('fangraphs_start', default=2022)
     fangraphs_end = Parameter('fangraphs_end', default=2022)
