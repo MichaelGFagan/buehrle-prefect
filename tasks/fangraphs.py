@@ -4,7 +4,7 @@ from google.oauth2 import service_account
 from prefect import task
 
 CREDENTIALS = service_account.Credentials.from_service_account_file(
-    '../bigquery_credentials.json'
+    'bigquery_credentials.json'
 )
 PROJECT_ID = 'baseball-source'
 RENAMED_COLUMNS = {
@@ -272,7 +272,7 @@ RENAMED_COLUMNS = {
 }
 
 @task
-def fangraphs(start=1871, end=2022):
+def fangraphs(start, end):
     years = range(start, end + 1)
     sides = ['batting', 'pitching']
     for year in years:
@@ -283,7 +283,7 @@ def fangraphs(start=1871, end=2022):
                 df = batting_stats(year, qual=0)
             elif side == 'pitching':
                 df = pitching_stats(year, qual=0)
-            df.rename(columns=renamed_columns, inplace=True)
+            df.rename(columns=RENAMED_COLUMNS, inplace=True)
             print('Loading ' + table_id)
             table_schema = []
             for column in df.columns:
