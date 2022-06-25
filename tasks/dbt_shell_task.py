@@ -15,20 +15,20 @@ dbt = DbtShellTask(
     dbt_kwargs={
         "type": "bigquery",
         "method": "service-account-json",
-        "project": Secret("BIGQUERY_PROJECT_ID"),
-        "dataset": Secret("BIGQUERY_DATASET"),
+        "project": Secret("BIGQUERY_PROJECT_ID").get(),
+        "dataset": Secret("BIGQUERY_DATASET").get(),
         "threads": 4,
         "keyfile_json": {
             "type": "service_account",
-            "project_id": Secret("BIGQUERY_PROJECT_ID"),
-            "private_key_id": Secret("BIGQUERY_PRIVATE_KEY_ID"),
-            "private_key": Secret("BIGQUERY_PRIVATE_KEY"),
-            "client_email": Secret("BIGQUERY_CLIENT_EMAIL"),
-            "client_id": Secret("BIGQUERY_CLIENT_ID"),
-            "auth_uri": Secret("BIGQUERY_AUTH_URI"),
-            "token_uri": Secret("BIGQUERY_TOKEN_URI"),
-            "auth_provider_x509_cert_url": Secret("BIGQUERY_AUTH_PROVIDER_X509_CERT_URL"),
-            "client_x509_cert_url": Secret("BIGQUERY_CLIENT_X509_CERT_URL")
+            "project_id": Secret("BIGQUERY_PROJECT_ID").get(),
+            "private_key_id": Secret("BIGQUERY_PRIVATE_KEY_ID").get(),
+            "private_key": Secret("BIGQUERY_PRIVATE_KEY").get(),
+            "client_email": Secret("BIGQUERY_CLIENT_EMAIL").get(),
+            "client_id": Secret("BIGQUERY_CLIENT_ID").get(),
+            "auth_uri": Secret("BIGQUERY_AUTH_URI").get(),
+            "token_uri": Secret("BIGQUERY_TOKEN_URI").get(),
+            "auth_provider_x509_cert_url": Secret("BIGQUERY_AUTH_PROVIDER_X509_CERT_URL").get(),
+            "client_x509_cert_url": Secret("BIGQUERY_CLIENT_X509_CERT_URL").get(),
         }
     }
 )
