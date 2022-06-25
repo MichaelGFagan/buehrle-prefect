@@ -1,4 +1,6 @@
 from prefect import Flow, Parameter
+from prefect.schedules import Schedule
+from prefect.schedules.clocks import CronClock
 import tasks.bref_war as bref_war
 import tasks.fangraphs as fangraphs
 import tasks.chadwick as chadwick
@@ -6,7 +8,9 @@ import tasks.clone_dbt_repo as clone_dbt_repo
 import tasks.dbt_shell_task as dbt_shell_task
 
 
-with Flow("WAR") as flow:
+schedule = Schedule(clocks=[CronClock("0 15 * * *")])
+
+with Flow("WAR", schedule=schedule) as flow:
     chadwick = chadwick.chadwick()
     bref_war = bref_war.bref_war()
     fangraphs_start = Parameter('fangraphs_start', default=2022)
