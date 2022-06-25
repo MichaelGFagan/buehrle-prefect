@@ -1,3 +1,4 @@
+import prefect
 from prefect import task
 from prefect.client import Secret
 from prefect.tasks.dbt.dbt import DbtShellTask
