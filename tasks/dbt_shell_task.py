@@ -11,13 +11,13 @@ dbt = DbtShellTask(
     environment='dev',
     log_stdout=True,
     log_stderr=True,
+    helper_script ="cd dbt",
     dbt_kwargs={
         "type": "bigquery",
         "method": "service-account-json",
         "project": Secret("BIGQUERY_PROJECT_ID"),
         "dataset": Secret("BIGQUERY_DATASET"),
         "threads": 4,
-        "helper_script": "cd dbt",
         "keyfile_json": {
             "type": "service_account",
             "project_id": Secret("BIGQUERY_PROJECT_ID"),
