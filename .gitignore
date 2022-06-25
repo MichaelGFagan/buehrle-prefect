@@ -133,3 +133,5 @@ dmypy.json
 
 # Credentials
 bigquery_credentials.json
+
+.DS_Store
