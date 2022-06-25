@@ -7,7 +7,7 @@ from prefect.tasks.dbt.dbt import DbtShellTask
 dbt = DbtShellTask(
     return_all=True,
     profile_name='buehrle_dbt',
-    profiles_dir='/Users/michaelfagan/.dbt/profiles.yml',
+    profiles_dir='/Users/michaelfagan/.dbt/',
     # overwrite_profiles=True,
     environment='dev',
     log_stdout=True,
